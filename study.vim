@@ -76,6 +76,21 @@ display the argument list
 show the contents of all registers
 
 :tj<enter>
+jump to tag on top of tag stack
+
+:reg a<enter>
+show the contents of register a
+
+:10,30!wc<enter>
+filter lines 10-30 through an external command (in this case wc)
+
+<c-v>8
+insert the character represented by the ASCII value 8
+
+:43,45d<enter>
+delete lines 43-45 (can specify any range before the d)
+
+H
 go to the top of the screen
 
 "a20yy
