@@ -36,39 +36,6 @@ finish
 
 = Study
 
--
-in normal mode, how do you move to the first non-whitespace character of the previous line
-
-+
-in normal mode, how do you move to the first non-whitespace character of the next line
-
-g`"
-how do you nondestructively move back to the last position when the buffer was closed
-
-:help shell<TAB>
-how can you see what *all* the commands starting with 'shell' when considering getting help
-
-:!mkdir -p %:h
-if you have a file that you can't save because its directory doesn't exist, how can you create that directory from the path component of the file?
-
-:set textwidth=78
-how do you make vim hard wrap at 78 chars?
-
-:s/\v([a-z])([A-Z])/\1_\L\2/g
-turn camelCase into snake_case
-
-:s/\%V\v([a-z])([A-Z])/\1_\L\2/g
-turn camelCase into snake_case (in only the visually selected part of the line)
-
-:s/\v_([a-z])/\u\1/g
-turn snake_case into camelCase
-
-:s/\%V\v_([a-z])/\u\1/g
-turn snake_case into camelCase (in only the visually selected part of line)
-
-:'<,'>normal @q
-run the macro recorded into the q register on all selected lines (the '<,'> is automatically added)
-
 :let @q="2dw"
 easily fill the q register with a macro that deletes two words
 
@@ -109,21 +76,6 @@ display the argument list
 show the contents of all registers
 
 :tj<enter>
-jump to tag on top of tag stack
-
-:reg a<enter>
-show the contents of register a
-
-:10,30!wc<enter>
-filter lines 10-30 through an external command (in this case wc)
-
-<c-v>8
-insert the character represented by the ASCII value 8
-
-:43,45d<enter>
-delete lines 43-45 (can specify any range before the d)
-
-H
 go to the top of the screen
 
 "a20yy
@@ -802,6 +754,21 @@ repeat the last command-line
 delete a line without overriding the buffer
 
 <c-w><enter>
+how would you change the text "foo hello there" to 'foo hello there' using vim-surround?
+
+:cold
+show the older error list in the quickfix window (error lists are referred to as being in the quickfix stack)
+
+:cnew
+show the newer error list in the quickfix window (error lists are referred to as being in the quickfix stack)
+
+@:
+repeat the last command-line
+
+"_dd ("_ is the black hole buffer)
+delete a line without overriding the buffer
+
+<c-w><enter>
 open the file listed in quickfix in a horizontal split
 
 :g/^/m0
@@ -829,6 +796,47 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+:'<,'>normal @q
+在所有选择的行上执行宏,先录制一个宏进寄存器q,然后visual模式选择行,按:,注意此时已经出现'<,'>,然后输入normal @q,所有选择行都执行完成
+run the macro recorded into the q register on all selected lines (the '<,'> is automatically added)
+
+:s/\%V\v_([a-z])/\u\1/g
+turn snake_case into camelCase (in only the visually selected part of line)
+
+:s/\v_([a-z])/\u\1/g
+turn snake_case into camelCase
+
+:s/\%V\v([a-z])([A-Z])/\1_\L\2/g
+进visual模式选择执行部分后,再执行替换才有效果,如果选择部分大于一行每次只处理一行,可移动行继续执行,不需要在进行visual选择
+turn camelCase into snake_case (in only the visually selected part of the line)
+
+:s/\v([a-z])([A-Z])/\1_\L\2/处理g
+把驼峰拼写法修改为蛇底式拼写法.\v表示正则表达式的任何元字符都不用加反斜杠,/g(loabl)表示所有匹配项全部执行,\L(U)大小写处理,如果转换的行为abcEDF,转换的结果为abc_eDF,因为\1\2只匹配到cE,可尝试s/\v([a-z]+)([A-Z]+)/_\U\1_\L\2/g将变为_ABC_edf
+turn camelCase into snake_case
+
+:set textwidth=78
+遇到空白才会换行,如果一句话超过指定值不会中间换行的,与lbr和brk有关
+how do you make vim hard wrap at 78 chars?
+
+:!mkdir -p %:h
+:!通过一个shell执行命令
+if you have a file that you can't save because its directory doesn't exist, how can you create that directory from the path component of the file?
+
+:help shell<TAB>
+how can you see what *all* the commands starting with 'shell' when considering getting help
+
+g`"
+与`"相同,跳转到上次退出时编辑此文件的位置
+how do you nondestructively move back to the last position when the buffer was closed
+
++
+普通模式下移动到下一行第一个非空白字符处
+in normal mode, how do you move to the first non-whitespace character of the next line
+
+-
+普通模式下移动到上一行的第一个非空白字符处 
+in normal mode, how do you move to the first non-whitespace character of the previous line
 
 :wq
 write the file and quit.  This is basically here just so that there's something in the "Known" queue.
