@@ -36,54 +36,6 @@ finish
 
 = Study
 
-:let @q="2dw"
-easily fill the q register with a macro that deletes two words
-
-norm
-what's a good shorthand for "normal" on the #vim_command_line
-
-:argdo norm @q
-run your last macro against all files in the args
-
-:.,. w !sh
-execute the contents of the current line in the current file in sh
-
-<c-]>
-if you have ctags working correctly, how do you jump to the definition of a function?
-
-<c-t>
-if you've made a ctag jump, how can you jump back other than <c-o>?
-
-gi
-if you left insert mode to go look at something elsewhere in the file, how can you get back to where you were and also back into insert mode?
-
-:tag save
-if you want to look up the definition of save using ctags
-
-:w !sh
-run the visually selected lines in the shell (not run as a filter)
-
-g?(some movement)
-rot13 the text selected by some movement
-
-:all
-open in window for each file in the arguments list
-
-:args
-display the argument list
-
-:reg<enter>
-show the contents of all registers
-
-:tj<enter>
-jump to tag on top of tag stack
-
-:reg a<enter>
-show the contents of register a
-
-:10,30!wc<enter>
-filter lines 10-30 through an external command (in this case wc)
-
 <c-v>8
 insert the character represented by the ASCII value 8
 
@@ -811,6 +763,59 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+:10,30!wc<enter>
+10到30行作为wc命令的输入参数并把10到30行替换为输出,注意和:2,5 w !sh(2到5行作为shell执行)的不同,还有2,5w !xargs command(2,5行作为command命令的参数)
+filter lines 10-30 through an external command (in this case wc)
+
+:reg a<enter>
+show the contents of register a
+
+:tj<enter>
+top-jump是吗?
+jump to tag on top of tag stack
+
+:reg<enter>
+show the contents of all registers
+
+:args
+display the argument list
+
+:all
+open in window for each file in the arguments list
+
+g?(some movement)
+visual模式下选择一行然后执行g?进行rot13编码,rot13的编码解码算法相同
+rot13 the text selected by some movement
+
+:w !sh
+run the visually selected lines in the shell (not run as a filter)
+
+:tag save
+if you want to look up the definition of save using ctags
+
+gi
+返回到上一次退出插入模式的位置,并且进入插入模式
+if you left insert mode to go look at something elsewhere in the file, how can you get back to where you were and also back into insert mode?
+
+<c-t>
+if you've made a ctag jump, how can you jump back other than <c-o>?
+
+<c-]>
+if you have ctags working correctly, how do you jump to the definition of a function?
+
+:.,. w !sh
+当前行的内容作为shell运行,也可以2,5 w !sh第2行到第5行
+execute the contents of the current line in the current file in sh
+
+:argdo norm @q
+run your last macro against all files in the args
+
+norm
+what's a good shorthand for "normal" on the #vim_command_line
+
+:let @q="2dw"
+easily fill the q register with a macro that deletes two words
 
 :'<,'>normal @q
 在所有选择的行上执行宏,先录制一个宏进寄存器q,然后visual模式选择行,按:,注意此时已经出现'<,'>,然后输入normal @q,所有选择行都执行完成
