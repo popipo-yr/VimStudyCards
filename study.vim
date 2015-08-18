@@ -36,89 +36,11 @@ finish
 
 = Study
 
-<c-v>8
-insert the character represented by the ASCII value 8
-
-:43,45d<enter>
-delete lines 43-45 (can specify any range before the d)
-
-H
-go to the top of the screen
-
-"a20yy
-add the next 20 lines to the 'a' register
-
-g~(some movement)
-switch case for movement command
-
-o
-in visual mode, exchange cursor position with the start/end of highlighting
-
 !10jwc<enter>
 filter the next 10 lines through an external command (in this case wc)
 
 20!!wc<enter>
 filter the next 20 lines through an external command (in this case wc)
-
-20H
-go to the line that is 20 lines below the line that is currently the top of the window
-
-M
-go to the middle of the window
-
-L
-go to the bottom of the window
-
-10L
-go to the tenth line from the bottom of the window
-
-20%
-go to the line that is 20% of the way down in the file
-
-`a
-go to the exact position of mark a (not just the beginning of the line like 'a)
-
-<c-d>
-Go down half a screen
-
-<c-u>
-Go up half a screen
-
-0
-move to the start of the line (before whitespace)
-
-<c-g>
-see location in file and file status
-
-:set ignorecase (or :set ic)
-ignore case when searching
-
-R
-enter replace mode to repeatedly replace the character under the cursor
-
-:w filename
-write the visually selected text to a file
-
-e
-Go to end of (next) word
-
-ge
-Go to end of previous word
-
-U
-restore last changed line
-
-:set relativenumber
-show the line numbers relative to the current cursor position
-
-g*
-Forward find word under cursor (fuzzy)
-
-g#
-Backward find word under cursor (fuzzy)
-
-#
-Backward find word under cursor
 
 some_command | vim -R -
 when in the shell, you can use vim as a pager by piping STDIN to it and putting it in readonly mode
@@ -763,6 +685,90 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+#
+Backward find word under cursor
+
+g#
+Backward find word under cursor (fuzzy)
+
+g*
+Forward find word under cursor (fuzzy)
+
+:set relativenumber
+show the line numbers relative to the current cursor position
+
+U
+restore last changed line
+
+ge
+Go to end of previous word
+
+e
+Go to end of (next) word
+
+:w filename
+write the visually selected text to a file
+
+R
+enter replace mode to repeatedly replace the character under the cursor
+
+:set ignorecase (or :set ic)
+ignore case when searching
+
+<c-g>
+see location in file and file status
+
+<c-g>
+see location in file and file status
+
+0
+move to the start of the line (before whitespace)
+
+<c-u>
+Go up half a screen
+
+<c-d>
+Go down half a screen
+
+`a
+go to the exact position of mark a (not just the beginning of the line like 'a)
+
+20%
+go to the line that is 20% of the way down in the file
+
+10L
+go to the tenth line from the bottom of the window
+
+L
+go to the bottom of the window
+
+M
+go to the middle of the window
+
+20H
+移动光标到显示顶部行下面20行处,如果超过当前显示屏最多移动行,则移动到最后一行
+go to the line that is 20 lines below the line that is currently the top of the window
+
+o
+in visual mode, exchange cursor position with the start/end of highlighting
+
+g~(some movement)
+gUw与guw效果相同
+switch case for movement command
+
+"a20yy
+add the next 20 lines to the 'a' register
+
+H
+go to the top of the screen
+
+:43,45d<enter>
+delete lines 43-45 (can specify any range before the d)
+
+<c-v>8
+在insert模式输入字符的数字代号后在点击一个字母则会显示
+insert the character represented by the ASCII value 8
 
 :10,30!wc<enter>
 10到30行作为wc命令的输入参数并把10到30行替换为输出,注意和:2,5 w !sh(2到5行作为shell执行)的不同,还有2,5w !xargs command(2,5行作为command命令的参数)
