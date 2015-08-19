@@ -42,68 +42,11 @@ filter the next 10 lines through an external command (in this case wc)
 20!!wc<enter>
 filter the next 20 lines through an external command (in this case wc)
 
-some_command | vim -R -
-when in the shell, you can use vim as a pager by piping STDIN to it and putting it in readonly mode
-
-:set cursorline
-highlight the entire line the cursor is on
-
-Q
-when in normal mode, how do you enter into Ex mode (to do extended work in the #vim_command_line)
-
-/usr/share/vim
-in Ubuntu, which folder has the default, system-wide vim files
-
 :map ,, :w\|:!ruby %
 how would you map ,, to writing the current buffer, then running it with ruby
 
-:!!
-repeat the last :! command
-
-:set colorcolumn=78
-in vim 703 and above, how do you specify that you'd like column 78 to be colored, so that you can see whether you are passing an ideal width
-
-text objects
-what do you call the higher level contexts than editing character by character?
-
-readline vi mode (tagged as #readline_vi_mode)
-what's it called when you use vim as your line editor in the shell?
-
-v
-how do you open an editor while the shell is in #readline_vi_mode
-
-g_
-move to the last non-whitespace character on a line
-
-bindkey -v
-in zsh, how can you use #readline_vi_mode?
-
-ciw
-change a word without necessarily being selected on the first letter of the word
-
-daw
-change the phrase "foo hello" to just "hello" (with cursor located at f*oo hello)
-
-<esc>v
-if you're using vim as your line editor, how can you turn it in to a full vim session
-
-yy@"
-execute the vim code in the current line.  To execute it in the shell, type :! at the beginning of the line
-
-mA
-mark: set a mark in the 'A' register (globally)
-
-gu
-make the selected text lower case
-
-gU
-make the selected text upper case
-
 <c-r>"
 paste yanked text into the #vim_command_line
-
-'A
-mark: return to a globally set mark, even if in another buffer
 
 <c-x><c-l>
 line completion
@@ -685,6 +628,66 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+'A
+mark: return to a globally set mark, even if in another buffer
+
+gU
+make the selected text upper case
+
+gu
+make the selected text lower case
+
+mA
+mark: set a mark in the 'A' register (globally)
+
+yy@"
+例如(! echo "abc:")这样的一行,在normal模式下输入上面的命令将替换为shell执行的结果
+execute the vim code in the current line.  To execute it in the shell, type :! at the beginning of the line
+
+<esc>v
+if you're using vim as your line editor, how can you turn it in to a full vim session
+
+daw
+change the phrase "foo hello" to just "hello" (with cursor located at f*oo hello)
+
+ciw
+change a word without necessarily being selected on the first letter of the word
+
+bindkey -v
+in zsh, how can you use #readline_vi_mode?
+
+g_
+move to the last non-whitespace character on a line
+
+v
+how do you open an editor while the shell is in #readline_vi_mode
+
+readline vi mode (tagged as #readline_vi_mode)
+what's it called when you use vim as your line editor in the shell?
+
+text objects
+就是<action>i<object>i作用于对象内部(i: inner), a作用于整个对象(a: an)
+what do you call the higher level contexts than editing character by character?
+
+:set colorcolumn=78
+in vim 703 and above, how do you specify that you'd like column 78 to be colored, so that you can see whether you are passing an ideal width
+
+:!!
+repeat the last :! command
+
+/usr/share/vim
+in Ubuntu, which folder has the default, system-wide vim files
+
+Q
+when in normal mode, how do you enter into Ex mode (to do extended work in the #vim_command_line)
+
+:set cursorline
+highlight the entire line the cursor is on
+
+some_command | vim -R -
+比如终端输入echo "abc" | vim -R - 将打开vim并输入abc,但是是只读模式,可用:w filename保存后进行修改
+when in the shell, you can use vim as a pager by piping STDIN to it and putting it in readonly mode
 
 #
 Backward find word under cursor
