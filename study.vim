@@ -51,129 +51,6 @@ paste yanked text into the #vim_command_line
 <c-x><c-l>
 line completion
 
-<c-i>
-move forward in the jump list
-
-<c-o>
-move backward in the jump list
-
-gf
-open file under the cursor
-
-:%s/\r//g
-remove all those nasty ^M characters from the end of each line in a file
-
-=
-autoindent lines already selected in visual mode
-
-==
-autoindent current line
-
-<c-o>
-in insert mode switch to normal mode for one command
-
-gqap
-format the current paragraph
-
-:jumps
-list your movements
-
-:history
-list your recent commands
-
-guu
-lower case the whole line
-
-gUU
-upper case the whole line
-
-display hex and ASCII value of character under cursor
-ga
-
-g8
-display hex value of utf-8 character under cursor
-
-ggg?G
-rot13 whole file
-
-'.
-jumps to last modified line
-
-`.
-jumps to exact position of last modification
-
-:h slash<c-d>
-list all help topics containing the word "slash"
-
-g;
-go backward in the change list in a file
-
-g,
-go forward in the change list in a file
-
-"ayy
-yank the current line into register "a"
-
-:set fdm=syntax
-fold: make folding use syntax
-
-:set nofoldenable
-fold: turn off folding
-
-:set foldenable
-fold: turn on folding (if it has been turned off)
-
-zj
-fold: moves the cursor to the next fold
-
-zk
-fold: moves the cursor to the previous fold
-
-[z
-fold: move to start of current open fold
-
-]z
-fold: Move to end of current open fold
-
-:map <f6>
-show what is currently mapped to <f6>
-
-:map
-show all the mappings
-
-:reg
-show the content of all registers
-
-:43,45 ce 80<enter>
-center the lines from 43 to 45 within an 80 char width
-
-zr
-fold: decrease the fold level by one
-
-aw
-in visual mode, select a whole word
-
-as
-in visual mode, select a whole sentence
-
-zm
-fold: increase the fold level by one
-
-<c-6>
-toggle between last two buffers
-
-gm
-go to the center of the screen on the current line
-
-]p
-Paste below the current line, adjusting indentation to match current line
-
-gP
-paste register above current line, leaving cursor after new text
-
-gp
-paste register below current line, leaving cursor after new text
-
 <c-r>a
 insert the content of register a while in insert mode
 
@@ -628,6 +505,129 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+gp
+paste register below current line, leaving cursor after new text
+
+gP
+paste register above current line, leaving cursor after new text
+
+]p
+Paste below the current line, adjusting indentation to match current line
+
+gm
+go to the center of the screen on the current line
+
+<c-6>
+toggle between last two buffers
+
+zm
+fold: increase the fold level by one
+
+as
+in visual mode, select a whole sentence
+
+aw
+in visual mode, select a whole word
+
+zr
+fold: decrease the fold level by one
+
+:43,45 ce 80<enter>
+center the lines from 43 to 45 within an 80 char width
+
+:reg
+show the content of all registers
+
+:map
+show all the mappings
+
+:map <f6>
+show what is currently mapped to <f6>
+
+]z
+fold: Move to end of current open fold
+
+[z
+fold: move to start of current open fold
+
+zk
+fold: moves the cursor to the previous fold
+
+zj
+fold: moves the cursor to the next fold
+
+:set foldenable
+fold: turn on folding (if it has been turned off)
+
+:set nofoldenable
+fold: turn off folding
+
+:set fdm=syntax
+fold: make folding use syntax
+
+"ayy
+yank the current line into register "a"
+
+g,
+go forward in the change list in a file
+
+g;
+go backward in the change list in a file
+
+:h slash<c-d>
+list all help topics containing the word "slash"
+
+`.
+jumps to exact position of last modification
+
+'.
+jumps to last modified line
+
+ggg?G
+rot13 whole file
+
+g8
+display hex value of utf-8 character under cursor
+
+ga
+display hex and ASCII value of character under cursor
+
+gUU
+upper case the whole line
+
+gf
+open file under the cursor
+
+guu
+lower case the whole line
+
+:history
+list your recent commands
+
+:jumps
+list your movements
+
+gqap
+format the current paragraph
+
+<c-o>
+in insert mode switch to normal mode for one command
+
+==
+autoindent current line
+
+=
+autoindent lines already selected in visual mode
+
+:%s/\r//g
+remove all those nasty ^M characters from the end of each line in a file
+
+<c-o>
+move backward in the jump list
+
+<c-i>
+move forward in the jump list
 
 'A
 mark: return to a globally set mark, even if in another buffer
