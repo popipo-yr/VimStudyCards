@@ -57,20 +57,8 @@ rails.vim: extract some functionality into a partial
 :Rintegrationtest
 open the cucumber feature with that name [tag:setup_specific:gem]
 
-<c-p>
-(while searching or ex mode) do previous search or command
-
-<c-n>
-(while searching or ex mode) do next search or command
-
-<c-f>
-(while searching or ex mode) see previous searches or commands
-
 :%s/forward//gn
 count the number of occurrences of "forward" in a file
-
-q:
-see previous commands in a "command-line window"
 
 q/
 see previous searches
@@ -481,6 +469,21 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+q:
+查看命令行的前一个指令
+see previous commands in a "command-line window"
+
+<c-f>
+显示全部搜索命令
+(while searching or ex mode) see previous searches or commands
+
+<c-n>
+(while searching or ex mode) do next search or command
+
+<c-p>
+MD意思是搜索点击:后前滚和后滚和箭头一个作用
+(while searching or ex mode) do previous search or command
 
 gj
 move cursor one *screen* line down, regardless of line wrapping
