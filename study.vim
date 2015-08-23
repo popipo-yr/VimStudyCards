@@ -45,32 +45,8 @@ filter the next 20 lines through an external command (in this case wc)
 :map ,, :w\|:!ruby %
 how would you map ,, to writing the current buffer, then running it with ruby
 
-<c-r>"
-paste yanked text into the #vim_command_line
-
 <c-x><c-l>
 line completion
-
-<c-r>a
-insert the content of register a while in insert mode
-
-[p
-Paste above the current line, adjusting indentation to match current line
-
-:%norm @x
-Execute the macro recorded in register x on all lines of the current file
-
-:norm @x
-Execute the macro recorded in register x on a visually selected set of lines
-
-<c-r>=5*5
-in the #vim_command_line and in insert mode, insert the result of a 5*5 calculation
-
-gk
-move cursor one *screen* line up, regardless of line wrapping
-
-gj
-move cursor one *screen* line down, regardless of line wrapping
 
 qQ ... added commands ... q
 append more commands to a pre-existing @q register macro
@@ -505,6 +481,33 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+gj
+move cursor one *screen* line down, regardless of line wrapping
+
+gk
+move cursor one *screen* line up, regardless of line wrapping
+
+<c-r>=5*5
+in the #vim_command_line and in insert mode, insert the result of a 5*5 calculation
+
+:norm @x
+Execute the macro recorded in register x on a visually selected set of lines
+
+:%norm @x
+%代表整个文件,norm指出后面是normal模式的指令,@x执行寄存器的命令
+:Execute the macro recorded in register x on all lines of the current file
+
+[p
+Paste above the current line, adjusting indentation to match current line
+
+<c-r>a
+<c-r>就在命令行和insert像normal模式下的p操作,插入yank的内容
+insert the content of register a while in insert mode
+
+<c-r>"
+<c-r>就在命令行和insert像normal模式下的p操作,插入yank的内容
+paste yanked text into the #vim_command_line
 
 gp
 paste register below current line, leaving cursor after new text
