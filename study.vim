@@ -48,9 +48,6 @@ how would you map ,, to writing the current buffer, then running it with ruby
 <c-x><c-l>
 line completion
 
-qQ ... added commands ... q
-append more commands to a pre-existing @q register macro
-
 :Rextract _partial_name.erb
 rails.vim: extract some functionality into a partial
 
@@ -60,50 +57,8 @@ open the cucumber feature with that name [tag:setup_specific:gem]
 :%s/forward//gn
 count the number of occurrences of "forward" in a file
 
-q/
-see previous searches
-
-{
-back a paragraph
-
-}
-forward a paragraph
-
-(
-back a sentence
-
-)
-forward a sentence
-
-%
-find matching parenthesis
-
-J
-join two lines
-
-gq
-reformat the selected text
-
-xp
-transpose two letters (delete and paste, technically)
-
-e
-move to the end of the word
-
-ea
-append at end of word
-
-w
-move the cursor forward by a word
-
-b
-move the cursor backward by a word
-
 <c-v>
 in insert or the #vim_command_line this turns the next thing typed into a literal
-
-:set spell
-Switch on spell checking
 
 <c-x><c-s>
 in insert mode correct the spelling of the current word
@@ -114,9 +69,6 @@ block comment the next three JavaScript lines
 "+y
 copy the current selection to a clipboard where other programs can use it
 
-ci"
-change all the words in between two quotes
-
 /<c-r><c-w>
 switch to search command mode, then copy in the word under the cursor
 
@@ -125,18 +77,6 @@ Go to the next item in the quickfix list
 
 :cp
 Go to the previous item in the quickfix list
-
-i<c-r>:
-insert last #vim_command_line command
-
-i<c-r>/
-insert last search command
-
-:10,30w foo.txt
-write lines 10-30 to a file named foo.txt
-
-:10,30w>>foo.txt
-append lines 10-30 to a file named foo.txt
 
 :r !ls
 insert results of ls external command below cursor
@@ -155,12 +95,6 @@ save the current file as root (in case you opened it up without sudo accidentall
 
 <c-r>:
 in Ex mode, insert the last command
-
-<c-y>
-In insert mode, insert the character right above the cursor
-
-<c-u>
-In insert mode, delete the current line from the cursor position to the beginning of the line
 
 <c-a>
 In insert mode, re-insert the text inserted in the previous insert session
@@ -469,6 +403,78 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+<c-u>
+插入模式删除此行开头到光标位置所有字符
+In insert mode, delete the current line from the cursor position to the beginning of the line
+
+<c-y>
+插入模式下,插入光标上面的字符
+In insert mode, insert the character right above the cursor
+
+:10,30w>>foo.txt
+append lines 10-30 to a file named foo.txt
+
+:10,30w foo.txt
+write lines 10-30 to a file named foo.txt
+
+i<c-r>/
+插入最后一个搜索命令
+insert last search command
+
+i<c-r>:
+插入最后一个命令行命令
+insert last #vim_command_line command
+
+ci"
+change all the words in between two quotes
+
+:set spell
+拼写检查
+Switch on spell checking
+
+b
+move the cursor backward by a word
+
+w
+move the cursor forward by a word
+
+ea
+append at end of word
+
+e
+move to the end of the word
+
+xp
+transpose two letters (delete and paste, technically)
+
+gq
+reformat the selected text
+
+J
+join two lines
+
+%
+find matching parenthesis
+
+)
+forward a sentence
+
+(
+back a sentence
+
+}
+forward a paragraph
+
+{
+back a paragraph
+
+q/
+see previous searches
+
+qQ ... added commands ... q
+#录制宏
+append more commands to a pre-existing @q register macro
 
 q:
 查看命令行的前一个指令
