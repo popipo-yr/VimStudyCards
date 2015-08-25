@@ -36,15 +36,6 @@ finish
 
 = Study
 
-!10jwc<enter>
-filter the next 10 lines through an external command (in this case wc)
-
-20!!wc<enter>
-filter the next 20 lines through an external command (in this case wc)
-
-:map ,, :w\|:!ruby %
-how would you map ,, to writing the current buffer, then running it with ruby
-
 <c-x><c-l>
 line completion
 
@@ -78,15 +69,6 @@ Go to the next item in the quickfix list
 :cp
 Go to the previous item in the quickfix list
 
-:r !ls
-insert results of ls external command below cursor
-
-:r file
-insert content of file below cursor
-
-&
-repeat last substitution
-
 :bm
 go to next modified buffer
 
@@ -94,19 +76,13 @@ go to next modified buffer
 save the current file as root (in case you opened it up without sudo accidentally and made changes to it)
 
 <c-r>:
-in Ex mode, insert the last command
-
-<c-a>
-In insert mode, re-insert the text inserted in the previous insert session
+in ex mode, insert the last command
 
 <c-r>/
-in Ex mode, insert the last search
+in ex mode, insert the last search
 
 <c-f>
-When typing something into the #vim_command_line, switch to the editable command-line mode where the command line becomes a fully vim-compatible text area
-
-o
-when in a visual selection, which key will toggle to the other end of the selection?
+when typing something into the #vim_command_line, switch to the editable command-line mode where the command line becomes a fully vim-compatible text area
 
 :h i_CTRL-R
 get help for how control r is used in insert mode
@@ -114,23 +90,14 @@ get help for how control r is used in insert mode
 :h c_CTRL-R
 get help for how control r is used in command mode
 
-:s/\%V //g
-remove all the spaces from the current visual selection, which is only a partial line, not a full line
-
 :retab
 if expandtab is set, this will change all the tabs to spaces, expanding them as appropriate
 
 <c-w>_
 maximize size of window split
 
-I
-insert at the beginning of the line
-
 gv
 remark area that was just marked
-
-ZZ
-same as :wq
 
 <c-l>
 redraw the screen
@@ -144,17 +111,8 @@ block selection (column editing)
 zo
 fold: open a fold at the cursor
 
-D
-delete to the end of the line
-
-C
-change to the end of the line
-
 :so $MYVIMRC
 reload the vimrc file (or ":so %" if you happen to be editing the file)
-
-A
-append at the end of the line
 
 <c-x>
 decrement a number on the same line when in normal mode (can be used with n before it)
@@ -164,12 +122,6 @@ increment a number on the same line when in normal mode (can be used with n befo
 
 m
 NERDTree: opens the filesystem menu for a file, allowing you to remove, rename, etc
-
-ma
-mark: set a mark in the 'a' register in the current buffer
-
-`a
-mark: return to the 'a' mark in the current buffer
 
 <c-i>
 next
@@ -403,6 +355,68 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+`a
+mark: return to the 'a' mark in the current buffer
+
+ma
+mark: set a mark in the 'a' register in the current buffer
+
+A
+append at the end of the line
+
+C
+change to the end of the line
+
+D
+delete to the end of the line
+
+ZZ
+same as :wq
+
+I
+insert at the beginning of the line
+
+:s/\%V //g
+#s替换 \%V选择的内容'/ //'替换空格为空
+remove all the spaces from the current visual selection, which is only a partial line, not a full line
+
+o
+#visual模式下移动光标在选择区域的两端
+when in a visual selection, which key will toggle to the other end of the selection?
+
+<c-a>
+#插入模式,插入前一段插入的内容
+In insert mode, re-insert the text inserted in the previous insert session
+
+&
+#如同执行:s,执行最后一次替换命令
+repeat last substitution
+
+:r file
+insert content of file below cursor
+
+:r !ls
+#将读取内容插入当前光标所在行的下面,:2r 表示插入文件第2行后面
+insert results of ls external command below cursor
+
+:map ,, :w\|:!ruby %
+#将对应的命令写入,,
+how would you map ,, to writing the current buffer, then running it with ruby
+
+20!!wc<enter>
+#!!表示当前行执行命令,注意命令行模式表示执行前一个命令,20表示20次
+#!20!wc结果一样
+filter the next 20 lines through an external command (in this case wc)
+
+!10jwc<enter>
+# !表示使用filter,! 把后面的文本送给命令, 取代输出,
+# 10j表示filter的对象是从当前行开始向下10行
+# 其实你一旦输入 !10j，vim就自动计算当前段落应该到那一行(eg.+10)，然后生成
+# :.,.+10! 等待之后输入wc，回车，完成操作
+# .表示当前行，.+10当然就是当前行向后数10行
+# 10!jwc 结果一样
+filter the next 10+1 lines through an external command (in this case wc)
 
 <c-u>
 插入模式删除此行开头到光标位置所有字符
