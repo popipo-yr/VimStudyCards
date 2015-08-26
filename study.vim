@@ -36,32 +36,11 @@ finish
 
 = Study
 
-<c-x><c-l>
-line completion
-
 :Rextract _partial_name.erb
 rails.vim: extract some functionality into a partial
 
 :Rintegrationtest
 open the cucumber feature with that name [tag:setup_specific:gem]
-
-:%s/forward//gn
-count the number of occurrences of "forward" in a file
-
-<c-v>
-in insert or the #vim_command_line this turns the next thing typed into a literal
-
-<c-x><c-s>
-in insert mode correct the spelling of the current word
-
-<c-v>jjjI//<esc>
-block comment the next three JavaScript lines
-
-"+y
-copy the current selection to a clipboard where other programs can use it
-
-/<c-r><c-w>
-switch to search command mode, then copy in the word under the cursor
 
 :cn
 Go to the next item in the quickfix list
@@ -71,30 +50,6 @@ Go to the previous item in the quickfix list
 
 :bm
 go to next modified buffer
-
-:w !sudo tee %
-save the current file as root (in case you opened it up without sudo accidentally and made changes to it)
-
-<c-r>:
-in ex mode, insert the last command
-
-<c-r>/
-in ex mode, insert the last search
-
-<c-f>
-when typing something into the #vim_command_line, switch to the editable command-line mode where the command line becomes a fully vim-compatible text area
-
-:h i_CTRL-R
-get help for how control r is used in insert mode
-
-:h c_CTRL-R
-get help for how control r is used in command mode
-
-:retab
-if expandtab is set, this will change all the tabs to spaces, expanding them as appropriate
-
-<c-w>_
-maximize size of window split
 
 gv
 remark area that was just marked
@@ -355,6 +310,71 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+:w !sudo tee %
+#如果一个文件需要root权限写入,可以执行修改
+#w!{cmd}，让vim执行一个外部命令{cmd}，然后把当前缓冲区的内容从stdin传入。
+#tee是一个把stdin保存到文件的小工具
+#%表示当前文件路径和文件名的寄存器
+save the current file as root (in case you opened it up without sudo accidentally and made changes to it)
+
+<c-w>_
+maximize size of window split
+
+:retab
+if expandtab is set, this will change all the tabs to spaces, expanding them as appropriate
+
+:h c_CTRL-R
+get help for how control r is used in command mode
+
+:h i_CTRL-R
+get help for how control r is used in insert mode
+
+<c-f>
+#命令行模式显示所有的输入的命令
+when typing something into the #vim_command_line, switch to the editable command-line mode where the command line becomes a fully vim-compatible text area
+
+<c-r>/
+#应该是插入模式
+in ex mode, insert the last search
+
+<c-r>:
+#应该是插入模式
+in ex mode, insert the last command
+
+/<c-r><c-w>
+#<C-R>是插入值的意思,<C-W>就是当前光标下第一个单词
+switch to search command mode, then copy in the word under the cursor
+
+"+y
+#系统自带的不行,需要macvim或者vimrc写入
+#vmap "+y :w !pbcopy<CR><CR>  
+#nmap "+p :r !pbpaste<CR><CR>
+#第一个命令在visual模式下第二个在normal模式下,还可以继续定义
+#,缺点有屏幕闪烁现象
+copy the current selection to a clipboard where other programs can use it
+
+<c-v>jjjI//<esc>
+#visual block操作
+block comment the next three JavaScript lines
+
+<c-x><c-s>
+#在输入模式驶入insret后点击c-x后松开c点击s,会出现选择提示,
+#如果出现错误'spell checking is not enable.'输入':set spell'
+in insert mode correct the spelling of the current word
+
+<c-v>
+#一般是将数字转化为符号字符,如点击快捷键后输入11点回车或输入一个字母,11将变为一个符号
+in insert or the #vim_command_line this turns the next thing typed into a literal
+
+:%s/forward//gn
+计算当前文件forward的个数,只报告匹配的数目，并不真正进行替换(:help :s_flags)
+count the number of occurrences of "forward" in a file
+
+<c-x><c-l>
+#插入模式下补全整行,比如现在插入模式一行第一个为l然后点击快捷键,
+#将会出现可选的补全行,c-p或c-n进行选择
+line completion
 
 `a
 mark: return to the 'a' mark in the current buffer
