@@ -36,59 +36,8 @@ finish
 
 = Study
 
-:Rextract _partial_name.erb
-rails.vim: extract some functionality into a partial
-
-:Rintegrationtest
-open the cucumber feature with that name [tag:setup_specific:gem]
-
-:cn
-Go to the next item in the quickfix list
-
-:cp
-Go to the previous item in the quickfix list
-
-:bm
-go to next modified buffer
-
-gv
-remark area that was just marked
-
-<c-l>
-redraw the screen
-
-<c-x><c-f>
-completes using filenames from the current directory.
-
-<c-v>
-block selection (column editing)
-
-zo
-fold: open a fold at the cursor
-
-:so $MYVIMRC
-reload the vimrc file (or ":so %" if you happen to be editing the file)
-
-<c-x>
-decrement a number on the same line when in normal mode (can be used with n before it)
-
-<c-a>
-increment a number on the same line when in normal mode (can be used with n before it)
-
 m
 NERDTree: opens the filesystem menu for a file, allowing you to remove, rename, etc
-
-<c-i>
-next
-
-<c-o>
-old
-
-~
-uppercase or lowercase the character under the cursor
-
-.
-repeat the last command
 
 <c-w><c-w>
 switch between windows
@@ -310,6 +259,68 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+.
+repeat the last command
+
+~
+uppercase or lowercase the character under the cursor
+
+<c-o>
+"跳转到后一个鼠标位置
+old
+
+<c-i>
+"跳转到前一个鼠标位置
+next
+
+<c-a>
+increment a number on the same line when in normal mode (can be used with n before it)
+
+<c-x>
+#normal模式下当前光标下如果是数字则减1
+decrement a number on the same line when in normal mode (can be used with n before it)
+
+:so $MYVIMRC
+#从文件中读取vim命令
+reload the vimrc file (or ":so %" if you happen to be editing the file)
+
+zo
+fold: open a fold at the cursor
+
+<c-v>
+block selection (column editing)
+
+<c-x><c-f>
+#插入模式,比如输入stu,点击快捷键将自动补全为文件名study.vim
+completes using filenames from the current directory.
+
+<c-l>
+"刷新目录
+redraw the screen
+
+gv
+"visual模式下选择一个区域点击gv,然后移动选择其他,在点击gv则变回原来的选择区域
+remark area that was just marked
+
+:bm
+#:Explore
+#设置vimrc,:fe打开目录窗口,或者100fe打开指定宽度的窗口
+#""""""""""""""""""""""""""""""
+#" netrw setting
+#""""""""""""""""""""""""""""""
+#let g:netrw_winsize = 30
+#nmap fe :Sexplore!<cr> 
+go to next modified buffer
+
+:cp
+Go to the previous item in the quickfix list
+
+:cn
+#主要用于开发,使用copen打开窗口,cclose关闭窗口
+#nmap <F6> :cn<cr>
+#nmap <F7> :cp<cr> #提高效率
+Go to the next item in the quickfix list
 
 :w !sudo tee %
 #如果一个文件需要root权限写入,可以执行修改
