@@ -36,69 +36,6 @@ finish
 
 = Study
 
-m
-NERDTree: opens the filesystem menu for a file, allowing you to remove, rename, etc
-
-<c-w><c-w>
-switch between windows
-
-[I
-show lines containing the word under the cursor
-
-redir @a
-redirect the output of an Ex command into buffer a
-
-g?
-reverse the characters in a visual selection
-
-:gui
-switch to the gui version
-
-:g/foo/p
-list all the matches with prepended line numbers in ex command output
-
-<c-a>
-insert previously inserted text (in insert mode)
-
-<c-w>
-delete word before cursor in insert mode
-
-<c-u>
-delete all inserted text on the line (in insert mode)
-
-:echo line('.')
-in the #vim_command_line, echo the current line number
-
-va(
-visually select *around* a set of parentheses.  Try it by moving the cursor (somewhere in here) and trying it
-
-redir @a | :g/someregex/
-Capture the lines that match a certain regex into the @a register for pasting
-
-rm /tmp/clip.txt ; vim -c "normal \"+p" -c "wq" /tmp/clip.txt
-Save the contents of the clipboard to a file by opening, pasting into, and closing vim.
-
-gD
-go to the first occurrence in the file of the word under the cursor
-
-gj
-go to next visual line, even if text wrapped
-
-%s/\v(.*\n){5}/&\r
-insert a blank line every 5 lines
-
-''
-go to the position before the latest jump
-
-Fx
-move the cursor backward to the previous occurrence of the character x on the current line.
-
-<c-b>
-scroll back one page
-
-:undolist
-list the leaves in the tree of the undo changes
-
 g+
 go to a newer text state (like <c-r>, but will move forward through all text states on multiple undo branches)
 
@@ -259,6 +196,83 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+:undolist
+list the leaves in the tree of the undo changes
+
+<c-b>
+"Backwards-Forwards Up-Down
+scroll back one page
+
+Fx
+move the cursor backward to the previous occurrence of the character x on the current line.
+
+''
+" 注意''和 ``的区别
+go to the position before the latest jump
+
+%s/\v(.*\n){5}/&\r
+"&表示匹配到的整个字符,\r回车符号
+insert a blank line every 5 lines
+
+gj
+"j,gj都是选择一行,但是gj选择的行是屏幕显示的一行,不包含自动换行部分
+go to next visual line, even if text wrapped
+
+gD
+"跳到文件第一次出现在光标下单词的位置,gd貌似一样
+go to the first occurrence in the file of the word under the cursor
+
+rm /tmp/clip.txt ; vim -c "normal \"+p" -c "wq" /tmp/clip.txt
+"这是在shell下执行,不是在vim内部,先是删除存在的文件,然后启动vim,并带有参数
+"normal表示进入normal模式"+p表示粘贴系统粘贴板,然后’wq 文件名‘保存到文件
+Save the contents of the clipboard to a file by opening, pasting into, and closing vim.
+
+redir @a | :g/someregex/
+"不要忘记:redir END结束重定向,就可以用:reg a活着插入模式c-r点a插入所有内容
+Capture the lines that match a certain regex into the @a register for pasting
+
+va(
+"a与i的区别
+visually select *around* a set of parentheses.  Try it by moving the cursor (somewhere in here) and trying it
+
+:echo line('.')
+in the #vim_command_line, echo the current line number
+
+<c-u>
+delete all inserted text on the line (in insert mode)
+
+<c-w>
+delete word before cursor in insert mode
+
+<c-a>
+insert previously inserted text (in insert mode)
+
+:g/foo/p
+"与norml模式下的[I相似,但不用移动到目标单词旁
+list all the matches with prepended line numbers in ex command output
+
+:gui
+switch to the gui version
+
+g?
+"对选择的文本进行rot13转换,普通模式只能转换一个
+reverse the characters in a visual selection
+
+redir @a
+"注意!> >>的区别,!>覆盖并且没文件失败,>>新建或者追加
+redirect the output of an Ex command into buffer a
+
+[I
+"将光标移动到想要查看的单词处,输入快捷键显示文件所有保含此单词的行.
+show lines containing the word under the cursor
+
+<c-w><c-w>
+"命令行执行copen后,点击快捷键that‘s it.
+switch between windows
+
+m
+NERDTree: opens the filesystem menu for a file, allowing you to remove, rename, etc
 
 .
 repeat the last command
