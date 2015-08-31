@@ -36,66 +36,6 @@ finish
 
 = Study
 
-g+
-go to a newer text state (like <c-r>, but will move forward through all text states on multiple undo branches)
-
-g-
-go to an older text state (like <c-r>, but will move backwards through all text states on multiple undo branches)
-
-fx
-move the cursor forward to the next occurrence of the character x on the current line
-
-Tx
-move the cursor backward to right before the previous occurrence of the character x on the current line.
-
-<c-w>x
-exchange the window with the next window (like if you split a new buffer into the wrong window location)
-
-M
-move the cursor to the middle of the screen
-
-zt
-scroll current line to top of page
-
-tx
-same as fx, but moves the cursor to right before the character, not all the way to it.
-
-<c-f>
-scroll forward one page
-
-zz
-move current line to middle of page
-
-;
-repeat the last f/F/t/T command you gave
-
-<c-e>
-scroll one line up
-
-<c-y>
-scroll one line down
-
-]m
-forward to start of next method
-
-[m
-backward to start of previous method
-
-zh
-scroll one character to the right
-
-zl
-scroll one character to the left
-
-zH
-scroll half a screen to the right
-
-zL
-scroll half a screen to the left
-
-zb
-scroll current line to bottom of page
-
 set -o vi
 in a the bash shell, how can you use #readline_vi_mode?
 
@@ -196,6 +136,76 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+zb
+scroll current line to bottom of page
+
+zL
+scroll half a screen to the left
+
+zH
+scroll half a screen to the right
+
+zl
+scroll one character to the left
+
+zh
+"关闭自动换行才有效 :set nowrap
+scroll one character to the right
+
+[m
+"[M  向后方法的结束处
+backward to start of previous method
+
+]m
+"]M 向前方法的结束处.大写是结尾,小写时开头.]的开口表示向前还是向后
+forward to start of next method
+
+<c-y>
+scroll one line down
+
+<c-e>
+scroll one line up
+
+;
+repeat the last f/F/t/T command you gave
+
+zz
+move current line to middle of page
+
+<c-f>
+scroll forward one page
+
+tx
+same as fx, but moves the cursor to right before the character, not all the way to it.
+
+zt
+scroll current line to top of page
+
+M
+move the cursor to the middle of the screen
+
+<c-w>x
+"交换两个窗口
+exchange the window with the next window (like if you split a new buffer into the wrong window location)
+
+Tx
+"查找x,并移动到字符靠当前方向前一个位置,小写反方向
+move the cursor backward to right before the previous occurrence of the character x on the current line.
+
+fx
+"查找x,并移动,大写反方向
+move the cursor forward to the next occurrence of the character x on the current line
+
+g-
+go to an older text state (like <c-r>, but will move backwards through all text states on multiple undo branches)
+
+g+
+"undolist列出undo分支,:undo命令并指定编号做为参数，则能够切换到指定分支
+"新建文件并输入“AAA”，然后在新的一行中输入“BBB”，返回Normal mode并按下u命令。
+"这时输入“BBB”的操作被撤消，文件将只包含“AAA”。
+"接着输入“CCC”，然后返回Normal mode并按下u命令，此时将撤消输入“CCC”的操作，文件仍然只包含“大象”。所以你的“BBB”就再也找不回来了。使用g+ g-都出来了
+go to a newer text state (like <c-r>, but will move forward through all text states on multiple undo branches)
 
 :undolist
 list the leaves in the tree of the undo changes
