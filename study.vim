@@ -36,33 +36,6 @@ finish
 
 = Study
 
-set -o vi
-in a the bash shell, how can you use #readline_vi_mode?
-
-<c-t>
-return from tag jump.  For example, in help, if you've followed a link, how do you go back?
-
-<c-]>
-jump to tag under cursort (for example, following a link in help)
-
-K
-look up the word under the cursor in man
-
-tabularize
-What's the name of a plugin that will help you align stuff
-
-VG:norm @x
-replay a vim macro recorded into register x on all lines between the current line and the bottom of the buffer
-
-%g/foo/s/bar/xxx/g
-On every line containing foo *anywhere* in the line (before or after the bar), replace every occurrence of bar with xxx
-
-:'<,'>!uniq | sort
-With some lines selected, how can I run them through external commands, substituting the result?
-
-:put =@%
-insert the file directory/filename for the current file into the buffer
-
 "Ayy
 Append the yank of the current line into the 'a' buffer
 
@@ -136,6 +109,40 @@ how can you decrement the first number on the first line of the file? (how would
 do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
 = Known
+
+:put =@%
+"插入当前文件名
+insert the file directory/filename for the current file into the buffer
+
+:'<,'>!uniq | sort
+"visual选择区域执行命令,uniq删除相邻的重复行
+With some lines selected, how can I run them through external commands, substituting the result?
+
+%g/foo/s/bar/xxx/g
+"文件中查找包含'foo'的行,并替换中介的'bar'为'xxx'
+On every line containing foo *anywhere* in the line (before or after the bar), replace every occurrence of bar with xxx
+
+VG:norm @x
+"VG选择从本行到文件末,:执行命令,norm @x普通模式下寄存器x的命令
+replay a vim macro recorded into register x on all lines between the current line and the bottom of the buffer
+
+tabularize
+"vim代码对齐插件
+What's the name of a plugin that will help you align stuff
+
+K
+"man查看系统命令
+look up the word under the cursor in man
+
+<c-]>
+jump to tag under cursort (for example, following a link in help)
+
+<c-t>
+return from tag jump.  For example, in help, if you've followed a link, how do you go back?
+
+set -o vi
+"系统终端下set用来定制shell环境,-o开启+o关闭,-o后不输入参数查看列表
+in a the bash shell, how can you use #readline_vi_mode?
 
 zb
 scroll current line to bottom of page
