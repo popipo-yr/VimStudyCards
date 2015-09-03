@@ -311,11 +311,11 @@ next
 increment a number on the same line when in normal mode (can be used with n before it)
 
 <c-x>
-#normal模式下当前光标下如果是数字则减1
+"normal模式下当前光标下如果是数字则减1
 decrement a number on the same line when in normal mode (can be used with n before it)
 
 :so $MYVIMRC
-#从文件中读取vim命令
+"从文件中读取vim命令
 reload the vimrc file (or ":so %" if you happen to be editing the file)
 
 zo
@@ -325,7 +325,7 @@ fold: open a fold at the cursor
 block selection (column editing)
 
 <c-x><c-f>
-#插入模式,比如输入stu,点击快捷键将自动补全为文件名study.vim
+"插入模式,比如输入stu,点击快捷键将自动补全为文件名study.vim
 completes using filenames from the current directory.
 
 <c-l>
@@ -337,29 +337,29 @@ gv
 remark area that was just marked
 
 :bm
-#:Explore
-#设置vimrc,:fe打开目录窗口,或者100fe打开指定宽度的窗口
-#""""""""""""""""""""""""""""""
-#" netrw setting
-#""""""""""""""""""""""""""""""
-#let g:netrw_winsize = 30
-#nmap fe :Sexplore!<cr> 
+":Explore
+"设置vimrc,:fe打开目录窗口,或者100fe打开指定宽度的窗口
+"""""""""""""""""""""""""""""""
+"" netrw setting
+"""""""""""""""""""""""""""""""
+"let g:netrw_winsize = 30
+"nmap fe :Sexplore!<cr> 
 go to next modified buffer
 
 :cp
 Go to the previous item in the quickfix list
 
 :cn
-#主要用于开发,使用copen打开窗口,cclose关闭窗口
-#nmap <F6> :cn<cr>
-#nmap <F7> :cp<cr> #提高效率
+"主要用于开发,使用copen打开窗口,cclose关闭窗口
+"nmap <F6> :cn<cr>
+"nmap <F7> :cp<cr> #提高效率
 Go to the next item in the quickfix list
 
 :w !sudo tee %
-#如果一个文件需要root权限写入,可以执行修改
-#w!{cmd}，让vim执行一个外部命令{cmd}，然后把当前缓冲区的内容从stdin传入。
-#tee是一个把stdin保存到文件的小工具
-#%表示当前文件路径和文件名的寄存器
+"如果一个文件需要root权限写入,可以执行修改
+"w!{cmd}，让vim执行一个外部命令{cmd}，然后把当前缓冲区的内容从stdin传入。
+"tee是一个把stdin保存到文件的小工具
+"%表示当前文件路径和文件名的寄存器
 save the current file as root (in case you opened it up without sudo accidentally and made changes to it)
 
 <c-w>_
@@ -375,49 +375,49 @@ get help for how control r is used in command mode
 get help for how control r is used in insert mode
 
 <c-f>
-#命令行模式显示所有的输入的命令
+"命令行模式显示所有的输入的命令
 when typing something into the #vim_command_line, switch to the editable command-line mode where the command line becomes a fully vim-compatible text area
 
 <c-r>/
-#应该是插入模式
+"应该是插入模式
 in ex mode, insert the last search
 
 <c-r>:
-#应该是插入模式
+"应该是插入模式
 in ex mode, insert the last command
 
 /<c-r><c-w>
-#<C-R>是插入值的意思,<C-W>就是当前光标下第一个单词
+"<C-R>是插入值的意思,<C-W>就是当前光标下第一个单词
 switch to search command mode, then copy in the word under the cursor
 
 "+y
-#系统自带的不行,需要macvim或者vimrc写入
-#vmap "+y :w !pbcopy<CR><CR>  
-#nmap "+p :r !pbpaste<CR><CR>
-#第一个命令在visual模式下第二个在normal模式下,还可以继续定义
-#,缺点有屏幕闪烁现象
+"系统自带的不行,需要macvim或者vimrc写入
+"vmap "+y :w !pbcopy<CR><CR>  
+"nmap "+p :r !pbpaste<CR><CR>
+"第一个命令在visual模式下第二个在normal模式下,还可以继续定义
+",缺点有屏幕闪烁现象
 copy the current selection to a clipboard where other programs can use it
 
 <c-v>jjjI//<esc>
-#visual block操作
+"visual block操作
 block comment the next three JavaScript lines
 
 <c-x><c-s>
-#在输入模式驶入insret后点击c-x后松开c点击s,会出现选择提示,
-#如果出现错误'spell checking is not enable.'输入':set spell'
+"在输入模式驶入insret后点击c-x后松开c点击s,会出现选择提示,
+"如果出现错误'spell checking is not enable.'输入':set spell'
 in insert mode correct the spelling of the current word
 
 <c-v>
-#一般是将数字转化为符号字符,如点击快捷键后输入11点回车或输入一个字母,11将变为一个符号
+"一般是将数字转化为符号字符,如点击快捷键后输入11点回车或输入一个字母,11将变为一个符号
 in insert or the #vim_command_line this turns the next thing typed into a literal
 
 :%s/forward//gn
-计算当前文件forward的个数,只报告匹配的数目，并不真正进行替换(:help :s_flags)
+"计算当前文件forward的个数,只报告匹配的数目，并不真正进行替换(:help :s_flags)
 count the number of occurrences of "forward" in a file
 
 <c-x><c-l>
-#插入模式下补全整行,比如现在插入模式一行第一个为l然后点击快捷键,
-#将会出现可选的补全行,c-p或c-n进行选择
+"插入模式下补全整行,比如现在插入模式一行第一个为l然后点击快捷键,
+"将会出现可选的补全行,c-p或c-n进行选择
 line completion
 
 `a
@@ -442,52 +442,52 @@ I
 insert at the beginning of the line
 
 :s/\%V //g
-#s替换 \%V选择的内容'/ //'替换空格为空
+"s替换 \%V选择的内容'/ //'替换空格为空
 remove all the spaces from the current visual selection, which is only a partial line, not a full line
 
 o
-#visual模式下移动光标在选择区域的两端
+"visual模式下移动光标在选择区域的两端
 when in a visual selection, which key will toggle to the other end of the selection?
 
 <c-a>
-#插入模式,插入前一段插入的内容
+"插入模式,插入前一段插入的内容
 In insert mode, re-insert the text inserted in the previous insert session
 
 &
-#如同执行:s,执行最后一次替换命令
+"如同执行:s,执行最后一次替换命令
 repeat last substitution
 
 :r file
 insert content of file below cursor
 
 :r !ls
-#将读取内容插入当前光标所在行的下面,:2r 表示插入文件第2行后面
+"将读取内容插入当前光标所在行的下面,:2r 表示插入文件第2行后面
 insert results of ls external command below cursor
 
 :map ,, :w\|:!ruby %
-#将对应的命令写入,,
+"将对应的命令写入,,
 how would you map ,, to writing the current buffer, then running it with ruby
 
 20!!wc<enter>
-#!!表示当前行执行命令,注意命令行模式表示执行前一个命令,20表示20次
-#!20!wc结果一样
+"!!表示当前行执行命令,注意命令行模式表示执行前一个命令,20表示20次
+"!20!wc结果一样
 filter the next 20 lines through an external command (in this case wc)
 
 !10jwc<enter>
-# !表示使用filter,! 把后面的文本送给命令, 取代输出,
-# 10j表示filter的对象是从当前行开始向下10行
-# 其实你一旦输入 !10j，vim就自动计算当前段落应该到那一行(eg.+10)，然后生成
-# :.,.+10! 等待之后输入wc，回车，完成操作
-# .表示当前行，.+10当然就是当前行向后数10行
-# 10!jwc 结果一样
+" !表示使用filter,! 把后面的文本送给命令, 取代输出,
+" 10j表示filter的对象是从当前行开始向下10行
+" 其实你一旦输入 !10j，vim就自动计算当前段落应该到那一行(eg.+10)，然后生成
+" :.,.+10! 等待之后输入wc，回车，完成操作
+" .表示当前行，.+10当然就是当前行向后数10行
+" 10!jwc 结果一样
 filter the next 10+1 lines through an external command (in this case wc)
 
 <c-u>
-插入模式删除此行开头到光标位置所有字符
+"插入模式删除此行开头到光标位置所有字符
 In insert mode, delete the current line from the cursor position to the beginning of the line
 
 <c-y>
-插入模式下,插入光标上面的字符
+"插入模式下,插入光标上面的字符
 In insert mode, insert the character right above the cursor
 
 :10,30w>>foo.txt
@@ -497,18 +497,18 @@ append lines 10-30 to a file named foo.txt
 write lines 10-30 to a file named foo.txt
 
 i<c-r>/
-插入最后一个搜索命令
+"插入最后一个搜索命令
 insert last search command
 
 i<c-r>:
-插入最后一个命令行命令
+"插入最后一个命令行命令
 insert last #vim_command_line command
 
 ci"
 change all the words in between two quotes
 
 :set spell
-拼写检查
+"拼写检查
 Switch on spell checking
 
 b
@@ -551,22 +551,22 @@ q/
 see previous searches
 
 qQ ... added commands ... q
-#录制宏
+"录制宏
 append more commands to a pre-existing @q register macro
 
 q:
-查看命令行的前一个指令
+"查看命令行的前一个指令
 see previous commands in a "command-line window"
 
 <c-f>
-显示全部搜索命令
+"显示全部搜索命令
 (while searching or ex mode) see previous searches or commands
 
 <c-n>
 (while searching or ex mode) do next search or command
 
 <c-p>
-MD意思是搜索点击:后前滚和后滚和箭头一个作用
+"MD意思是搜索模式或命令模式里翻滚以前的命令,和pgup,padn,方向箭头一个作用
 (while searching or ex mode) do previous search or command
 
 gj
@@ -582,18 +582,18 @@ in the #vim_command_line and in insert mode, insert the result of a 5*5 calculat
 Execute the macro recorded in register x on a visually selected set of lines
 
 :%norm @x
-%代表整个文件,norm指出后面是normal模式的指令,@x执行寄存器的命令
+"%代表整个文件,norm指出后面是normal模式的指令,@x执行寄存器的命令
 :Execute the macro recorded in register x on all lines of the current file
 
 [p
 Paste above the current line, adjusting indentation to match current line
 
 <c-r>a
-<c-r>就在命令行和insert像normal模式下的p操作,插入yank的内容
+"<c-r>就在命令行和insert像normal模式下的p操作,插入yank的内容
 insert the content of register a while in insert mode
 
 <c-r>"
-<c-r>就在命令行和insert像normal模式下的p操作,插入yank的内容
+"<c-r>就在命令行和insert像normal模式下的p操作,插入yank的内容
 paste yanked text into the #vim_command_line
 
 gp
@@ -732,7 +732,7 @@ mA
 mark: set a mark in the 'A' register (globally)
 
 yy@"
-例如(! echo "abc:")这样的一行,在normal模式下输入上面的命令将替换为shell执行的结果
+"例如(! echo "abc:")这样的一行,在normal模式下输入上面的命令将替换为shell执行的结果.yy的操作将会把结果写入无名寄存器'"',@“则是执行寄存器中的命令
 execute the vim code in the current line.  To execute it in the shell, type :! at the beginning of the line
 
 <esc>v
@@ -757,7 +757,7 @@ readline vi mode (tagged as #readline_vi_mode)
 what's it called when you use vim as your line editor in the shell?
 
 text objects
-就是<action>i<object>i作用于对象内部(i: inner), a作用于整个对象(a: an)
+"就是<action>i<object>i作用于对象内部(i: inner), a作用于整个对象(a: an)
 what do you call the higher level contexts than editing character by character?
 
 :set colorcolumn=78
@@ -776,7 +776,7 @@ when in normal mode, how do you enter into Ex mode (to do extended work in the #
 highlight the entire line the cursor is on
 
 some_command | vim -R -
-比如终端输入echo "abc" | vim -R - 将打开vim并输入abc,但是是只读模式,可用:w filename保存后进行修改
+"比如终端输入echo "abc" | vim -R - 将打开vim并输入abc,但是是只读模式,可用:w filename保存后进行修改
 when in the shell, you can use vim as a pager by piping STDIN to it and putting it in readonly mode
 
 #
@@ -840,14 +840,14 @@ M
 go to the middle of the window
 
 20H
-移动光标到显示顶部行下面20行处,如果超过当前显示屏最多移动行,则移动到最后一行
+"移动光标到显示顶部行下面20行处,如果超过当前显示屏最多移动行,则移动到最后一行
 go to the line that is 20 lines below the line that is currently the top of the window
 
 o
 in visual mode, exchange cursor position with the start/end of highlighting
 
 g~(some movement)
-gUw与guw效果相同
+"gUw与guw效果相同
 switch case for movement command
 
 "a20yy
@@ -860,18 +860,18 @@ go to the top of the screen
 delete lines 43-45 (can specify any range before the d)
 
 <c-v>8
-在insert模式输入字符的数字代号后在点击一个字母则会显示
+"在insert模式输入字符的数字代号后在点击一个字母则会显示
 insert the character represented by the ASCII value 8
 
 :10,30!wc<enter>
-10到30行作为wc命令的输入参数并把10到30行替换为输出,注意和:2,5 w !sh(2到5行作为shell执行)的不同,还有2,5w !xargs command(2,5行作为command命令的参数)
+"10到30行作为wc命令的输入参数并把10到30行替换为输出,注意和:2,5 w !sh(2到5行作为shell执行)的不同,还有2,5w !xargs command(2,5行作为command命令的参数)
 filter lines 10-30 through an external command (in this case wc)
 
 :reg a<enter>
 show the contents of register a
 
 :tj<enter>
-top-jump是吗?
+"top-jump是吗?
 jump to tag on top of tag stack
 
 :reg<enter>
@@ -884,7 +884,7 @@ display the argument list
 open in window for each file in the arguments list
 
 g?(some movement)
-visual模式下选择一行然后执行g?进行rot13编码,rot13的编码解码算法相同
+"visual模式下选择一行然后执行g?进行rot13编码,rot13的编码解码算法相同
 rot13 the text selected by some movement
 
 :w !sh
@@ -894,7 +894,7 @@ run the visually selected lines in the shell (not run as a filter)
 if you want to look up the definition of save using ctags
 
 gi
-返回到上一次退出插入模式的位置,并且进入插入模式
+"返回到上一次退出插入模式的位置,并且进入插入模式
 if you left insert mode to go look at something elsewhere in the file, how can you get back to where you were and also back into insert mode?
 
 <c-t>
@@ -904,7 +904,7 @@ if you've made a ctag jump, how can you jump back other than <c-o>?
 if you have ctags working correctly, how do you jump to the definition of a function?
 
 :.,. w !sh
-当前行的内容作为shell运行,也可以2,5 w !sh第2行到第5行
+"当前行的内容作为shell运行,也可以2,5 w !sh第2行到第5行
 execute the contents of the current line in the current file in sh
 
 :argdo norm @q
@@ -917,7 +917,7 @@ what's a good shorthand for "normal" on the #vim_command_line
 easily fill the q register with a macro that deletes two words
 
 :'<,'>normal @q
-在所有选择的行上执行宏,先录制一个宏进寄存器q,然后visual模式选择行,按:,注意此时已经出现'<,'>,然后输入normal @q,所有选择行都执行完成
+"在所有选择的行上执行宏,先录制一个宏进寄存器q,然后visual模式选择行,按:,注意此时已经出现'<,'>,然后输入normal @q,所有选择行都执行完成
 run the macro recorded into the q register on all selected lines (the '<,'> is automatically added)
 
 :s/\%V\v_([a-z])/\u\1/g
@@ -927,34 +927,34 @@ turn snake_case into camelCase (in only the visually selected part of line)
 turn snake_case into camelCase
 
 :s/\%V\v([a-z])([A-Z])/\1_\L\2/g
-进visual模式选择执行部分后,再执行替换才有效果,如果选择部分大于一行每次只处理一行,可移动行继续执行,不需要在进行visual选择
+"进visual模式选择执行部分后,再执行替换才有效果,如果选择部分大于一行每次只处理一行,可移动行继续执行,不需要在进行visual选择
 turn camelCase into snake_case (in only the visually selected part of the line)
 
 :s/\v([a-z])([A-Z])/\1_\L\2/处理g
-把驼峰拼写法修改为蛇底式拼写法.\v表示正则表达式的任何元字符都不用加反斜杠,/g(loabl)表示所有匹配项全部执行,\L(U)大小写处理,如果转换的行为abcEDF,转换的结果为abc_eDF,因为\1\2只匹配到cE,可尝试s/\v([a-z]+)([A-Z]+)/_\U\1_\L\2/g将变为_ABC_edf
+"把驼峰拼写法修改为蛇底式拼写法.\v表示正则表达式的任何元字符都不用加反斜杠,/g(loabl)表示所有匹配项全部执行,\L(U)大小写处理,如果转换的行为abcEDF,转换的结果为abc_eDF,因为\1\2只匹配到cE,可尝试s/\v([a-z]+)([A-Z]+)/_\U\1_\L\2/g将变为_ABC_edf
 turn camelCase into snake_case
 
 :set textwidth=78
-遇到空白才会换行,如果一句话超过指定值不会中间换行的,与lbr和brk有关
+"遇到空白才会换行,如果一句话超过指定值不会中间换行的,与lbr和brk有关
 how do you make vim hard wrap at 78 chars?
 
 :!mkdir -p %:h
-:!通过一个shell执行命令
+:"!通过一个shell执行命令
 if you have a file that you can't save because its directory doesn't exist, how can you create that directory from the path component of the file?
 
 :help shell<TAB>
 how can you see what *all* the commands starting with 'shell' when considering getting help
 
 g`"
-与`"相同,跳转到上次退出时编辑此文件的位置
+"与`"相同,跳转到上次退出时编辑此文件的位置
 how do you nondestructively move back to the last position when the buffer was closed
 
 +
-普通模式下移动到下一行第一个非空白字符处
+"普通模式下移动到下一行第一个非空白字符处
 in normal mode, how do you move to the first non-whitespace character of the next line
 
 -
-普通模式下移动到上一行的第一个非空白字符处 
+"普通模式下移动到上一行的第一个非空白字符处 
 in normal mode, how do you move to the first non-whitespace character of the previous line
 
 :wq
