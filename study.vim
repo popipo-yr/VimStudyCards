@@ -36,79 +36,81 @@ finish
 
 = Study
 
-"Ayy
-Append the yank of the current line into the 'a' buffer
+= Known
 
-%v/bar/m$
-move every line that *does not* contain bar to the end of the file
+/\cruby
+"忽略大小写查找单词,\c可放在任何位置,/ruby\c,大写\C强调大小写
+do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
 
-:verb set ballooneval?
-how can you check who last set ballooneval
+vim filename -c 'execute "normal \<C-x>"'
+"vim打开文件并执行norml下的命令,这个命令时如果当前光标下时一个数字,将减少它的值.可用来计算打开的次数
+how can you decrement the first number on the first line of the file? (how would you property escape the <c-x>?)
 
-%s/\v("[a-z_]+"): /\1 => /g
-replace "foo": with "foo" => (to turn JSON into acceptable Ruby)
+ds"
+"先安装插件vim-surround
+if you have the surround plugin, how would you remove the double quotes from "hello" when inside it?
 
-%s/\v +$//g 
-remove trailing spaces from all lines
-
-cs"'
-how would you change the text "foo hello there" to 'foo hello there' using vim-surround?
-
-:cold
-show the older error list in the quickfix window (error lists are referred to as being in the quickfix stack)
-
-:cnew
-show the newer error list in the quickfix window (error lists are referred to as being in the quickfix stack)
-
-@:
-repeat the last command-line
-
-"_dd ("_ is the black hole buffer)
-delete a line without overriding the buffer
-
-<c-w><enter>
-how would you change the text "foo hello there" to 'foo hello there' using vim-surround?
-
-:cold
-show the older error list in the quickfix window (error lists are referred to as being in the quickfix stack)
-
-:cnew
-show the newer error list in the quickfix window (error lists are referred to as being in the quickfix stack)
-
-@:
-repeat the last command-line
-
-"_dd ("_ is the black hole buffer)
-delete a line without overriding the buffer
-
-<c-w><enter>
-open the file listed in quickfix in a horizontal split
-
-:g/^/m0
-reverse the vertical order of all the lines
-
-:only
-if you have a bunch of windows open, close all the other windows, making the current window the only window
-
-vim +NERDTree
-From the shell command line (not vim's command line) how can you easily run a vim command?
+&
+"重复上一次的替换操作
+repeat last substitution
 
 :AS
 with rails.vim, how do you open the rspec tests when you are in a model?
 
-&
-repeat last substitution
+vim +NERDTree
+"打开vim开启NERDTree插件
+From the shell command line (not vim's command line) how can you easily run a vim command?
 
-ds"
-if you have the surround plugin, how would you remove the double quotes from "hello" when inside it?
+:only
+"打开多个窗口,执行将关闭其他窗口
+if you have a bunch of windows open, close all the other windows, making the current window the only window
 
-vim filename -c 'execute "normal \<C-x>"'
-how can you decrement the first number on the first line of the file? (how would you property escape the <c-x>?)
+:g/^/m0
+"g全文件查找,/^匹配所用行,/m0移动到第一行,每行炒作一次就颠倒顺序了
+reverse the vertical order of all the lines
 
-/\cruby
-do a case-insensitive search for ruby (the \c can be anywhere, including at the end)
+<c-w><enter>
+"使用copen打开quickfix窗口,切换到窗口执行
+open the file listed in quickfix in a horizontal split
 
-= Known
+"_dd ("_ is the black hole buffer)
+"黑洞寄存器'_',这个寄存器不做任何操作
+delete a line without overriding the buffer
+
+@:
+"最后执行的命令储存在寄存器':'
+repeat the last command-line
+
+:cnew
+show the newer error list in the quickfix window (error lists are referred to as being in the quickfix stack)
+
+:cold
+show the older error list in the quickfix window (error lists are referred to as being in the quickfix stack)
+
+cs"'
+"先安装插件vim-surround
+how would you change the text "foo hello there" to 'foo hello there' using vim-surround?
+
+%s/\v +$//g 
+"如果这样更清楚 %s/\v( +)$//g
+remove trailing spaces from all lines
+
+%s/\v("[a-z_]+"):/\1/g
+replace "foo": with "foo" => (to turn JSON into acceptable Ruby)
+
+:verb set ballooneval?
+how can you check who last set ballooneval
+
+%v/bar/m$
+":g/pattern/cmd 是找到pattern,并进行操作
+":v/pattern/cmd 是找到非pattern,并进行操作
+":%s/pattern//gn，统计个数,n表示只报告匹配的个数而不进行实际的替换
+move every line that *does not* contain bar to the end of the file
+
+"Ayy
+"先使用:call setreg('A','')清空寄存器在操作
+"寄存器大小写区别,都指向同一个寄存器,大写表示追加内容,小写表示覆盖内容
+Append the yank of the current line into the 'a' buffer
 
 :put =@%
 "插入当前文件名
